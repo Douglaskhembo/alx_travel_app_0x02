@@ -1,16 +1,12 @@
-"""
-WSGI config for alx_travel_app project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
-"""
-
 import os
+from dotenv import load_dotenv
+
+# Set the project base directory
+project_folder = '/home/KHEMBO/alx_travel_app_0x02/alx_travel_app'
+load_dotenv(os.path.join(project_folder, '.env'))
+
+# Correct settings path
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'alx_travel_app.settings')
 
 from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
-
 application = get_wsgi_application()
