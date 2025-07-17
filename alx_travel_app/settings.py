@@ -78,6 +78,9 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'listings.CustomUser'
+
+
 # REST Framework
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.openapi.AutoSchema',
@@ -110,3 +113,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Chapa payment settings
 CHAPA_SECRET_KEY = env('CHAPA_SECRET_KEY')
+
+# Default admin user settings
+DEFAULT_ADMIN_EMAIL = env('DEFAULT_ADMIN_EMAIL')
+DEFAULT_ADMIN_PASSWORD = env('DEFAULT_ADMIN_PASSWORD')
+
+CELERY_BROKER_URL = env("CELERY_BROKER_URL")
+
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'

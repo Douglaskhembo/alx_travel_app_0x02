@@ -1,8 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import viewsets, status
-from .models import Listing, Booking, Payment
-from .serializers import ListingSerializer, BookingSerializer, PaymentSerializer
+from .models import Listing, Booking, Payment, CustomUser
+from .serializers import ListingSerializer, BookingSerializer, PaymentSerializer, CustomUserSerializer
 import uuid
 import requests
 from django.conf import settings
@@ -12,6 +12,10 @@ from django.shortcuts import get_object_or_404
 @api_view(['GET'])
 def index(request):
     return Response({"message": "Welcome to the ALX Travel App!"})
+
+class CustomUserViewSet(viewsets.ModelViewSet):
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer  
 
 class ListingViewSet(viewsets.ModelViewSet):
     queryset = Listing.objects.all()
