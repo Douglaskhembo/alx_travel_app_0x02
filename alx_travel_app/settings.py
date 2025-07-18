@@ -6,7 +6,9 @@ from pathlib import Path
 env = environ.Env(
     DEBUG=(bool, False)
 )
-environ.Env.read_env()  # Reads from .env in BASE_DIR
+# Load from the correct environment file path
+environ.Env.read_env(os.path.join(BASE_DIR.parent, '.env'))
+
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent
