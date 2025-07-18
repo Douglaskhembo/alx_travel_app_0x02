@@ -2,16 +2,17 @@ import os
 import environ
 from pathlib import Path
 
+# Base directory (MUST be above all os.path or env usage)
+BASE_DIR = Path(__file__).resolve().parent
+
 # Initialize environment variables
 env = environ.Env(
     DEBUG=(bool, False)
 )
-# Load from the correct environment file path
-environ.Env.read_env(os.path.join(BASE_DIR.parent, '.env'))
 
+# Load environment variables from .env in BASE_DIR
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-# Base directory
-BASE_DIR = Path(__file__).resolve().parent
 
 # Security settings
 SECRET_KEY = env("SECRET_KEY")
