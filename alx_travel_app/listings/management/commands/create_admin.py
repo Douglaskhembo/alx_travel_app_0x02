@@ -19,6 +19,7 @@ class Command(BaseCommand):
                 first_name=first_name,
                 last_name=last_name,
                 password=password,
+                phone_number=phone_number,
                 role="ADMIN"
             )
             self.stdout.write(self.style.SUCCESS(
