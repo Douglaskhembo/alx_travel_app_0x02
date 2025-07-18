@@ -128,3 +128,13 @@ CELERY_BROKER_URL = env("CELERY_BROKER_URL")
 
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # for collectstatic
+
+# Optional if you're serving additional static files manually
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
